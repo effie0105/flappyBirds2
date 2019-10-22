@@ -13,8 +13,8 @@ export class Main{
   constructor(){
     console.log("游戏开始啦"); 
     //初始化画布
-    this.canvas = document.getElementById("game");
-    // this.canvas = wx.createCanvas();
+    // this.canvas = document.getElementById("game");
+    this.canvas = wx.createCanvas();
     this.ctx = this.canvas.getContext("2d");
     //初始化资源加载器
     this.loader = new ResourceLoader();    
@@ -64,7 +64,8 @@ export class Main{
   }
   //绑定单击事件
   gameEvent(){
-    this.canvas.addEventListener('touchstart',e=>{
+    // this.canvas.addEventListener('touchstart',e=>{
+      wx.onTouchStart(res=>{
       if(this.director.isGameOver){
         //游戏结束了,点击重新开始
         this.init();
