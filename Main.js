@@ -8,6 +8,7 @@ import { UpPipe } from "./js/runtime/UpPipe.js";
 import { Birds } from "./js/player/Birds.js";
 import { StartButton } from "./js/player/StartButton.js";
 import { Score } from "./js/player/Score.js";
+import {Tool} from './extra.js';
 
 export class Main{
   constructor(){
@@ -38,6 +39,11 @@ export class Main{
     this.dataStore.canvas = this.canvas;
     this.dataStore.ctx = this.ctx;
     this.dataStore.res = map;
+
+    const t = new Tool();
+    t.voice('./audio/bgm.mp3',true).play();
+    t.getTelInfo();
+    t.getUserInfo();
 
     this.init();
   }
